@@ -45,7 +45,7 @@ author         | `posts`         | `post_author`  |
 date           | `posts`         | `post_date`    |
 rating         | `tutorial`      | `meta_value`   | `INT, NOT NULL, UNSIGNED`
 estimated_time | `tutorial`      | `meta_value`   | `TIME, NOT NULL, UNSIGNED`
-post_id        | `posts`         | `meta_value`   |
+post_id        | `tutorial`      | `meta_value`   |
 
 
 ### Role
