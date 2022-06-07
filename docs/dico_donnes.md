@@ -7,7 +7,7 @@ Nom      | Table WordPress | Détail(s)
 User     | `user`          | role `bricoleur`
 Tutorial | `posts`         | type `CPT`
 Comment  | `users`         | role `comment`
-Role     | `role`          | type `developer`
+Role     | `role`          | type `role`
 Tool     | `terms`         | taxonomy `tool`
 Category | `terms`         | taxonomy `category`
 Material | `terms`         | taxonomy `material`
@@ -29,29 +29,31 @@ avatar    | `usermeta`      | `meta_value`     |
 
 Propriété  | Table WordPress | Colonne   | Détail(s)
 -----------|-----------------|-----------|----------
-comment_id | `terms`         | `term_id` |
-content    | `terms`         | `content` |
+comment_id | `user_meta`     | `term_id` |
+content    | `user_meta`     | `content` |
 
 ### Tutorial
 
 Propriété      | Table WordPress | Colonne        | Détail(s)
----------------|-----------------|----------------|-----------------------------
-tutorial_id    | `tutorial`      | `ID`           |
+---------------|-----------------|----------------|-------------------------------------------------------
+tutorial_id    | `tutorial`      | `ID`           | `INT, PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT`
 title          | `posts`         | `post_title`   |
 excerpt        | `posts`         | `post_excerpt` |
 content        | `posts`         | `post_content` |
 image          | `posts`         | `post_image`   |
 author         | `posts`         | `post_author`  |
 date           | `posts`         | `post_date`    |
-rating         | `postmeta`      | `meta_value`   | `meta_key` = `rating`
-estimated_time | `postmeta`      | `meta_value`   | `meta_key` = `estimated_time`
+rating         | `tutorial`      | `meta_value`   | `INT, NOT NULL, UNSIGNED`
+estimated_time | `tutorial`      | `meta_value`   | `TIME, NOT NULL, UNSIGNED`
+post_id        | `posts`         | `meta_value`   |
+
 
 ### Role
 
-Propriété | Table WordPress | Colonne     | Détail(s)
-----------|-----------------|-------------|----------
-role_key  | `posts`         | `ID`        | N/A
-name      | `posts`         | `post_name` | N/A
+Propriété | Table WordPress | Colonne    | Détail(s)
+----------|-----------------|------------|----------
+role_key  | `posts`         | `ID`       | N/A
+name      | `posts`         | `meta_key` | N/A
 
 ### Tool
 
