@@ -1,8 +1,7 @@
 vendor
 wordpress
 wp-config.php
-
-install.md
+mdp.md
 
 /wp-content/*
 !/wp-content
