@@ -4,7 +4,7 @@ namespace bricolHelp;
 
 use bricolHelp\PostType\TutorialsPostType;
 
-class plugin
+class Plugin
 {
     static public function run()
     {
