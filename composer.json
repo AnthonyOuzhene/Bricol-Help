@@ -2,7 +2,10 @@
     "require": {
         "johnpbloch/wordpress": "^5.9",
         "wpackagist-plugin/wordpress-seo": "^18.6",
-        "wpackagist-theme/twentyseventeen": "^2.9"
+        "wpackagist-theme/twentyseventeen": "^2.9",
+        "wpackagist-plugin/query-monitor": "^3.9",
+        "wpackagist-plugin/classic-editor": "^1.6",
+        "wpackagist-plugin/fakerpress": "^0.5.3"
     },
     "config": {
         "allow-plugins": {
