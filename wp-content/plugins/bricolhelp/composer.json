@@ -1,0 +1,17 @@
+{
+    "name": "oclock/bricolhelp",
+    "description": "Plugin WordPress pour le projet bricolhelp",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "bricolHelp\\": "."
+        }
+    },
+    "authors": [
+        {
+            "name": "GaetanOclock",
+            "email": "gaetan@oclock.io"
+        }
+    ],
+    "require": {}
+}

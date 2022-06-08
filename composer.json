@@ -13,10 +13,13 @@
             "composer/installers": true
         }
     },
-    "repositories":[
+    "scripts": {
+        "autoload": "cd wp-content/plugins/bricolhelp && composer dump-autoload"
+    },
+    "repositories": [
         {
-            "type":"composer",
-            "url":"https://wpackagist.org",
+            "type": "composer",
+            "url": "https://wpackagist.org",
             "only": [
                 "wpackagist-plugin/*",
                 "wpackagist-theme/*"

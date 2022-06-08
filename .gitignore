@@ -9,3 +9,5 @@ mdp.md
 !/wp-content/themes
 /wp-content/plugins/*
 !/wp-content/plugins
+
+!/wp-content/plugins/bricolhelp
