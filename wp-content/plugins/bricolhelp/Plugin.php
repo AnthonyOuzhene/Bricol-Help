@@ -4,6 +4,7 @@ namespace bricolHelp;
 
 use bricolHelp\PostType\TutorialsPostType;
 use bricolHelp\Role\ProfessionalRole;
+use bricolHelp\Role\AdvancedRole;
 use bricolHelp\Taxonomy\CategoriesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
 use bricolHelp\Taxonomy\ToolsTaxonomy;
@@ -46,6 +47,8 @@ class Plugin
     {
         // déclaration des rôles custom
         ProfessionalRole::register();
+        AdvancedRole::register();
+
 
         // associer les caps custom de nos CPT et CT à l'admin
         TutorialsPostType::addCaps();
@@ -65,6 +68,8 @@ class Plugin
 
         // on retire les rôles custom
         ProfessionalRole::unregister();
+        AdvancedRole::unregister();
+
 
         // Dissocier les caps custom de nos CPT et CT de l'admin
         TutorialsPostType::removeCaps();
