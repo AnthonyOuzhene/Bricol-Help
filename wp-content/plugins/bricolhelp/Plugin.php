@@ -5,6 +5,7 @@ namespace bricolHelp;
 use bricolHelp\PostType\TutorialsPostType;
 use bricolHelp\Taxonomy\CategoriesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
+use bricolHelp\Taxonomy\ToolsTaxonomy;
 
 class Plugin
 {
@@ -31,6 +32,7 @@ class Plugin
         TutorialsPostType::register();
         MaterialsTaxonomy::register();
         CategoriesTaxonomy::register();
+        ToolsTaxonomy::register();
     }
 
         /**
@@ -45,6 +47,7 @@ class Plugin
         TutorialsPostType::addCaps();
         MaterialsTaxonomy::addCaps();
         CategoriesTaxonomy::addCaps();
+        ToolsTaxonomy::addCaps();
     }
     
     /**
@@ -59,5 +62,6 @@ class Plugin
         TutorialsPostType::removeCaps();
         MaterialsTaxonomy::removeCaps();
         CategoriesTaxonomy::removeCaps();
+        ToolsTaxonomy::removeCaps();
     }
 }
