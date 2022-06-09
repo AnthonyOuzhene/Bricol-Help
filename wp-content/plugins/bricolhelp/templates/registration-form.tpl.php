@@ -1,6 +1,3 @@
-<?php
-
-?>
 <p>
     <label for="user_role">Vous êtes...</label>
     <select id="user_role" name="user_role" class="input">
