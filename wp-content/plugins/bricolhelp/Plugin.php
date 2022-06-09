@@ -3,6 +3,7 @@
 namespace bricolHelp;
 
 use bricolHelp\PostType\TutorialsPostType;
+use bricolHelp\Taxonomy\CategoriesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
 
 class Plugin
@@ -29,6 +30,7 @@ class Plugin
         // lancer l'enregistrement du CPT
         TutorialsPostType::register();
         MaterialsTaxonomy::register();
+        CategoriesTaxonomy::register();
     }
 
         /**
@@ -42,6 +44,7 @@ class Plugin
         // associer les caps custom de nos CPT et CT à l'admin
         TutorialsPostType::addCaps();
         MaterialsTaxonomy::addCaps();
+        CategoriesTaxonomy::addCaps();
     }
     
     /**
@@ -55,5 +58,6 @@ class Plugin
         // Dissocier les caps custom de nos CPT et CT de l'admin
         TutorialsPostType::removeCaps();
         MaterialsTaxonomy::removeCaps();
+        CategoriesTaxonomy::removeCaps();
     }
 }
