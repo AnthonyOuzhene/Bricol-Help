@@ -1,5 +1,4 @@
 # projet-bricol-help-back
-# projet-bricol-help-back
 
 # Cahier des charges du projet de Bricol' Help
 
