@@ -3,6 +3,7 @@
 namespace bricolHelp;
 
 use bricolHelp\PostType\TutorialsPostType;
+use bricolHelp\Role\ProfessionalRole;
 use bricolHelp\Taxonomy\CategoriesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
 use bricolHelp\Taxonomy\ToolsTaxonomy;
@@ -35,7 +36,7 @@ class Plugin
         ToolsTaxonomy::register();
     }
 
-        /**
+    /**
      * onPluginActivation()
      * Actions to perform on plugin activation
      *
@@ -43,13 +44,16 @@ class Plugin
      */
     static public function onPluginActivation()
     {
+        // déclaration des rôles custom
+        ProfessionalRole::register();
+
         // associer les caps custom de nos CPT et CT à l'admin
         TutorialsPostType::addCaps();
         MaterialsTaxonomy::addCaps();
         CategoriesTaxonomy::addCaps();
         ToolsTaxonomy::addCaps();
     }
-    
+
     /**
      * onPluginDeactivation()
      * Actions to perform on plugin deactivation
@@ -58,6 +62,10 @@ class Plugin
      */
     static public function onPluginDeactivation()
     {
+
+        // on retire les rôles custom
+        ProfessionalRole::unregister();
+
         // Dissocier les caps custom de nos CPT et CT de l'admin
         TutorialsPostType::removeCaps();
         MaterialsTaxonomy::removeCaps();
