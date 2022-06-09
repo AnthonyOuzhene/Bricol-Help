@@ -16,11 +16,11 @@ L’univers du bricolage s’étant hyper développé, chaque particulier peut s
 
 Equipe de 4 developpeurs WordPress: 2 développeurs Front (avec le Framework Vuejs) et 2 développeurs back pour une répartition comme suit :
 
-- Gestion de projet (étude, cahier des charges, wireframes, suivi du dossier)
-- Création de maquettes graphiques originales
+- Gestion de projet (étude, cahier des charges, wireframes, suivi du dossier
 
 Front :
-- Intégration HTML/SASS/Vuejs
+- Intégration HTML/SASS
+- Dynamisation avec framework Vuejs
 
 Back :
 - Création & connexion BDD
@@ -48,16 +48,18 @@ Sprint 3 : Revue de code
 
 ### Contenus
 
-- Page d'accueil avec barre de recherche par ville
-- Une liste de boulangerie proposées selon la ville renseignée
-- Des des produits à ajouter au panier selon la boulangerie sélectionnée
-- Un panier pour passer commande
+- Page d'accueil avec navbar et les 5 derniers tutos
+- Une liste de tutoriels de toutes les catégories
+- Une liste de tutos par catégorie sélectionné
+- Le détail d'un tuto
+- Autres pages fixes
 
-Les contenus seront crées via une interface d'administration selon les rôles définis. (Role admin, Role partenaire, Role user)
+Les contenus seront crées via l'interface d'administration WordPress selon les rôles définis
+(Role admin, Role bricoleur professionnel, Role bricoleur multi-tâches, Role bricoleur du dimanche)
 
 ### Interactions services
 
-- Paiement en ligne (via stripes dans une prochaine version)
+- système de géolocalisation pour trouver des aides physiques et poster des demandes (dans une prochaine version)
 
 ### Langue(s)
 
@@ -66,38 +68,41 @@ Site en français
 ### Arborescence
 
 - Accueil
-- Page accueil avec filtre de recherche par ville + miniatures par catégorie
-- Page des liste de boulangerie à proximité
-- Page des liste des produits par bouangerie
-- Page panier
-- (A propos)
-- (Mentions légales)
-- (Blog)
+- Page accueil avec les 5 derniers articles affichés
+- Page des liste de tous les tutos
+- Page des liste des tutos par catégorie
+- Page d'un tuto en particulier
+- page A propos
+- page contact (boîte à idée)
+- (page connexion / inscription 
+- page demande / offre  d'aide / (dans un futur version)
 
 ### Navigation sur le blog
 
-- Un menu principal (_responsive_) avec navbar catégories de produitset accueil.
+- Un menu principal (_responsive_) avec navbar catégories de tutos et accueil.
   - petits écrans : un menu « burger » dans lequel se trouvent les liens
   - sinon : liste de liens visibles
-- On peut cliquer sur une catégorie pour aller sur une page listant tous les produits de cette catégorie.
+- On peut cliquer sur une catégorie pour aller sur une page listant tous les tutos de cette catégorie.
 
 ### Templates / charte graphique
 
 #### Layout global
 
-- Une image d'en-tête avec titre + slogan (baseline)
+- Une image d'en-tête avec logo + slogan
 - "Navbar" qui regroupe :
   - Accueil
+  - Liste des tutos
   - Liste des catégories
   - A propos
-  - blog
+  - Contact
+  - Connexion / inscription
+  - Mes favoris (si connecté)
 - Pied de page :
-  - Liens vers backoffice, a propos, mentions légales
+  - Bouton autoscoll vers haut
 
-#### Liste des boulangeries
+#### Détails d'un tuto
 
-- Apres avoir renseigné sa ville dans la page d'accueil, s'affiche la liste les boulangeries à proximité (distance à déterminer).
-- La liste des boulangeries regroupe une note, ses informations de contact et ajout en favori
+- Le détails d'un tuto regroupe une note, l'ajout en favori, le contenu du tuto et une pagination
 
 ### Contraintes techniques
 
@@ -113,44 +118,53 @@ Le site sera conçu avec :
 #### Côté front
 
 - HTML5 : le code respectera une sémantique correcte.
-- CSS : dans sa version 2 ou 3, pour rester compatible avec Internet Explorer 11. L'utilisation d'un framework pour le _responsive_/_mobile-first_ est envisagé.
-- React / Redux : pour animation et intégration dynamique.
+- Sass : Préprocesseur compilé en CSS permettant d’apporter certaines fonctionnalités tel que l’imbrication des règles
+- VueJs : pour animation et intégration dynamique.
 - API localisation 
 
 #### Côté back
 
 - PHP : PHP7 sera utilisé.
-- Symfony : framework PHP avec route API json pour connexion avec Front +  Vue en twig pour le backoffice
+- Wordpress (headless) : CMS pour gestion de contenu écrit en PHP avec une base de données de MySql. Dans le cadre de ce projet, WordPress sera utilisé pour gérer l’administration du site.
 - MySQL : permettra de stocker & persister les données.
 
 ### Description des données
 
-BOULANGERIE :
-- Nom
-- Adresse
-- Code postale
-- Image de la boutique
-- Numéro de téléphone
-- Note
-- Frais de livraison
-- Délai de livraison
+Tutorials :
+- TITLE
+- excerpt
+- content
+- image
+- author
+- date
+- rating
+- estimated_time
 
-PRODUIT :
-- Nom
-- Prix
-- Description
-- Photo
+TOOLS :
+- name
+- slug
+- image
 
 CATEGORIE :
-- Nom
+- name
+- slug
+- image
 
-COMMANDE :
-- Prix total
-- Date de commande
+MATERIALS :
+- name
+- slug
+- image
 
-UTILISATEURS :
-- Nom
+USER :
+- email
 - Adresse
-- Email
-- Mot de passe
-- Role
+- Firstname
+- Lastname
+- displayname
+- avatar
+
+ROLE :
+- name
+
+COMMENT :
+- content
