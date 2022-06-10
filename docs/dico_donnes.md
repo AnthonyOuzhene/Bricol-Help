@@ -36,7 +36,7 @@ content    | `user_meta`     | `content` |
 
 Propriété      | Table WordPress | Colonne        | Détail(s)
 ---------------|-----------------|----------------|-------------------------------------------------------
-tutorial_id    | `tutorial`      | `ID`           | `INT, PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT`
+tutorial_id    | `tutorial`      | `ID`           | `BIGINT, PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT`
 title          | `posts`         | `post_title`   |
 excerpt        | `posts`         | `post_excerpt` |
 content        | `posts`         | `post_content` |

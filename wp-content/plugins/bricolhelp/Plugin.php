@@ -2,6 +2,7 @@
 
 namespace bricolHelp;
 
+use bricolHelp\Classes\Database;
 use bricolHelp\PostType\TutorialsPostType;
 use bricolHelp\Role\ProfessionalRole;
 use bricolHelp\Role\AdvancedRole;
@@ -70,11 +71,14 @@ class Plugin
         ProfessionalRole::unregister();
         AdvancedRole::unregister();
 
-
         // Dissocier les caps custom de nos CPT et CT de l'admin
         TutorialsPostType::removeCaps();
         MaterialsTaxonomy::removeCaps();
         CategoriesTaxonomy::removeCaps();
         ToolsTaxonomy::removeCaps();
+
+        // on déclenche la création de la table custom tutorial avec FK post_id
+        Database::generateTables();
+
     }
 }
