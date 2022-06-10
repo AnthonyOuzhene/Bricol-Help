@@ -4,7 +4,7 @@ namespace bricolHelp\Api;
 
 use bricolHelp\PostType\TutorialsPostType;
 
-class Tutorial {
+class Tutorials {
 
     /**
      * run()
@@ -32,6 +32,7 @@ class Tutorial {
         // dans $response, on trouve la propriété "data" qui est un array associatif dans lequel on peut placer des données
         // wp_trim_excerpt() => sans argument précisé, cette fonction récupère l'extrait pour le post courant (en le générant depuis le contenu si besoin). Dans ce filtre, chaque post utilisé pour gérer la requête
         // strip_tags() pour supprimer le HTML qui pourrait s'y trouver
+        
         $response->data['excerpt'] = strip_tags(wp_trim_excerpt());
 
         // on ajoute l'url du thumbnail => image mise en avant, dans un format réduit
