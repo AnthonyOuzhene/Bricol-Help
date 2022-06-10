@@ -15,7 +15,5 @@ class Registration
         // require du template register-form.php
         // BRICOLHELP_TEMPLATES_DIR est définie dans bricolhelp.php
         require BRICOLHELP_TEMPLATES_DIR . '/register-form.tpl.php';
-    
-
     }
 }
