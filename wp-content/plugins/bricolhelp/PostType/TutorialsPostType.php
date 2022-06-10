@@ -31,6 +31,6 @@ class TutorialsPostType extends PostType
             'delete_tutorial' => true,
             'edit_others_tutorials' => true,
             'delete_others_tutorials' => true,
-        ]
+        ],
     ];
 }
