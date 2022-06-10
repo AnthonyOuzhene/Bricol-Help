@@ -13,7 +13,9 @@ class Registration
     static public function displayCustomFields()
     {
         // require du template register-form.php
-        // OPROFILE_TEMPLATES_DIR est définie dans oprofile.php
-        require BRICOLHELP_TEMPLATES_DIR . '/registration-form.tpl.php';
+        // BRICOLHELP_TEMPLATES_DIR est définie dans bricolhelp.php
+        require BRICOLHELP_TEMPLATES_DIR . '/register-form.tpl.php';
+    
+
     }
 }

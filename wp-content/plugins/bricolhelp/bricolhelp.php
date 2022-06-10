@@ -15,5 +15,6 @@ const BRICOLHELP_PLUGIN_FILE = __FILE__;
 // on définit le chemin des templates de ce plugin
 define('BRICOLHELP_TEMPLATES_DIR', __DIR__ . '/templates');
 
+
  // on démarre le plugin
 Plugin::run();
