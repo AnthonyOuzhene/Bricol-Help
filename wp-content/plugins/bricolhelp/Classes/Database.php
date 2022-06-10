@@ -24,10 +24,10 @@ class Database
         // écrire la requête à exécuter
         $sql = "
             CREATE TABLE IF NOT EXISTS `{$tableName}` (
-                `tutorial_id` BIGINT(20) PRIMARY KEY NOT NULL UNSIGNED AUTO_INCREMENT,
-                `rating` TINYINT(1) NOT NULL UNSIGNED DEFAULT 1,
-                `estimated_time` TIME NOT NULL UNSIGNED,
-                `post_id` BIGINT(20) NOT NULL UNSIGNED,
+                `tutorial_id` BIGINT(20) UNSIGNED PRIMARY KEY NOT NULL  AUTO_INCREMENT,
+                `rating` TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
+                `estimated_time` TIME NOT NULL ,
+                `post_id` BIGINT(20) UNSIGNED NOT NULL ,
                 FOREIGN KEY (`post_id`) REFERENCES " . $tablePost . " (`id`)
             ) {$charsetCollate};
         ";
