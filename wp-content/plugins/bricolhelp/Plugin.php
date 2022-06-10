@@ -17,6 +17,10 @@ class Plugin
         // on accroche une méthode pour gérer l'init
         add_action('init', [self::class, 'onInit']);
 
+         // à l'init de l'api REST
+         add_action( 'rest_api_init', [self::class, 'onRestInit']);
+
+
         // idem pour l'activation du plugin
         register_activation_hook(
             BRICOLHELP_PLUGIN_FILE,
@@ -38,6 +42,17 @@ class Plugin
         ToolsTaxonomy::register();
     }
 
+     /**
+     * Regroups all the actions to perform on WordPress rest_api_init hook
+     *
+     * @return void
+     */
+    static public function onRestInit()
+    {
+        remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
+        add_filter('rest_pre_serve_request', [self::class, 'setupCors']);
+    }
+    
     /**
      * onPluginActivation()
      * Actions to perform on plugin activation
