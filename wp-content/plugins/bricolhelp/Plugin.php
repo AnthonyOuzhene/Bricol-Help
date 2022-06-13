@@ -10,7 +10,7 @@ use bricolHelp\Role\AdvancedRole;
 use bricolHelp\Taxonomy\CategoriesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
 use bricolHelp\Taxonomy\ToolsTaxonomy;
-use Bricolhelp\User\Register;
+use bricolHelp\User\Register;
 
 class Plugin
 {
@@ -57,11 +57,34 @@ class Plugin
      */
     static public function onRestInit()
     {
+        
         remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
-        //add_filter('rest_pre_serve_request', [self::class, 'setupCors']);
-        Register::initroute();
+        add_filter('rest_pre_serve_request', [self::class, 'setupCors']);
+        
+        Register::initRoute();
+
+        // ajout du champ "metadata" qui contient toutes les méta pour un post
+        register_rest_field(
+            'post',
+            'metadata',
+            [
+                'get_callback' => function ($data) {
+                    return get_post_meta($data['id'], '', '');
+                }
+            ]
+        );
     }
 
+    /**
+     * setupCors()
+     * filters the Cross Origin Policy
+     *
+     * @return void
+     */
+    static public function setupCors()
+    {
+        header('Access-Control-Allow-Origin: *');
+    }
     /**
      * onPluginActivation()
      * Actions to perform on plugin activation
