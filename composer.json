@@ -15,7 +15,8 @@
     },
     "scripts": {
         "autoload": "cd wp-content/plugins/bricolhelp && composer dump-autoload",
-        "reactivate-plugin": "wp plugin deactivate bricolhelp && wp plugin activate bricolhelp"
+        "reactivate-plugin": "wp plugin deactivate bricolhelp && wp plugin activate bricolhelp",
+        "uploads-rights": "sudo chown -R $USER:www-data wp-content/uploads"
     },
     "repositories": [
         {
