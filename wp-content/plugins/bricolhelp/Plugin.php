@@ -10,6 +10,7 @@ use bricolHelp\Role\AdvancedRole;
 use bricolHelp\Taxonomy\CategoriesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
 use bricolHelp\Taxonomy\ToolsTaxonomy;
+use Bricolhelp\User\Register;
 
 class Plugin
 {
@@ -57,7 +58,8 @@ class Plugin
     static public function onRestInit()
     {
         remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
-        add_filter('rest_pre_serve_request', [self::class, 'setupCors']);
+        //add_filter('rest_pre_serve_request', [self::class, 'setupCors']);
+        Register::initroute();
     }
 
     /**
