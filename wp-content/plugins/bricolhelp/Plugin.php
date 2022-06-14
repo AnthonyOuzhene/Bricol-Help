@@ -2,6 +2,7 @@
 
 namespace bricolHelp;
 
+use bricolHelp\Classes\Registration;
 use bricolHelp\PostType\TutorialsPostType;
 use bricolHelp\Taxonomy\CategoriesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
@@ -23,6 +24,9 @@ class Plugin
             BRICOLHELP_PLUGIN_FILE,
             [self::class, 'onPluginDeactivation'] // la méthode à déclencher à la désactivation du plugin
         );
+
+        // on initialise la partie "Registration"
+        Registration::init();
     }
 
     static public function onInit()
@@ -33,7 +37,7 @@ class Plugin
         CategoriesTaxonomy::register();
     }
 
-        /**
+    /**
      * onPluginActivation()
      * Actions to perform on plugin activation
      *
@@ -46,7 +50,7 @@ class Plugin
         MaterialsTaxonomy::addCaps();
         CategoriesTaxonomy::addCaps();
     }
-    
+
     /**
      * onPluginDeactivation()
      * Actions to perform on plugin deactivation
