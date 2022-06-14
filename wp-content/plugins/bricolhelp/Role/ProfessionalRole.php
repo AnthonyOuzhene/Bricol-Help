@@ -30,5 +30,6 @@ class ProfessionalRole extends Role
             'edit_categories' => true,
             'delete_categories' => true,
             'assign_categories' => true,
+            'upload_files' => true
         ];
 }
