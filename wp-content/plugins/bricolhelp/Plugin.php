@@ -39,6 +39,16 @@ class Plugin
     static public function PreInit()
     {
         Tutorials::run();
+
+        // on gère la whitelist pour le plugin jwt-auth
+        // on veut return un array qui contient toutes les routes à ne PAS protéger
+        add_filter('jwt_auth_whitelist', function ($endpoints) {
+            $your_endpoints = [
+                '/wp-json/bricolhelp/v1/user',
+            ];
+
+            return array_unique(array_merge($endpoints, $your_endpoints));
+        });
     }
 
     static public function onInit()
@@ -57,10 +67,10 @@ class Plugin
      */
     static public function onRestInit()
     {
-        
+
         remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
         add_filter('rest_pre_serve_request', [self::class, 'setupCors']);
-        
+
         Register::initRoute();
 
         // ajout du champ "metadata" qui contient toutes les méta pour un post
@@ -93,6 +103,7 @@ class Plugin
      */
     static public function onPluginActivation()
     {
+
         // déclaration des rôles custom
         ProfessionalRole::register();
         AdvancedRole::register();

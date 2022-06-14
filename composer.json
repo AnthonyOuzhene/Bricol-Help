@@ -5,7 +5,8 @@
         "wpackagist-theme/twentyseventeen": "^2.9",
         "wpackagist-plugin/query-monitor": "^3.9",
         "wpackagist-plugin/classic-editor": "^1.6",
-        "wpackagist-plugin/fakerpress": "^0.5.3"
+        "wpackagist-plugin/fakerpress": "^0.5.3",
+        "wpackagist-plugin/jwt-auth": "^2.1"
     },
     "config": {
         "allow-plugins": {

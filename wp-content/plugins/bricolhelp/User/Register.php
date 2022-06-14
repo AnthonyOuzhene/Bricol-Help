@@ -10,7 +10,7 @@ class Register
         // on utilise register_rest_route pour définir une nouvelle route
         // on peut préciser pour quelle méthode HTTP (verbe) et quel sera le callback => la méthode à déclencher pour cette route
         // l'argument 1 contient le namespace dans lequel créer la route
-        register_rest_route('bricolhelp', '/user', [
+        register_rest_route('bricolhelp/v1', '/user', [
             'methods' => 'POST',
             'callback' => [self::class, 'handleRegistration'],
         ]);
