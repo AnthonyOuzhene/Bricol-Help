@@ -4,6 +4,7 @@ namespace bricolHelp;
 
 use bricolHelp\Api\Tutorials;
 use bricolHelp\Classes\Database;
+use bricolHelp\Classes\Registration;
 use bricolHelp\PostType\TutorialsPostType;
 use bricolHelp\Role\ProfessionalRole;
 use bricolHelp\Role\AdvancedRole;
@@ -34,6 +35,9 @@ class Plugin
             BRICOLHELP_PLUGIN_FILE,
             [self::class, 'onPluginDeactivation'] // la méthode à déclencher à la désactivation du plugin
         );
+
+        // on initialise la partie "Registration"
+        Registration::init();
     }
 
     static public function PreInit()
