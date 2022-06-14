@@ -7,7 +7,7 @@ use bricolHelp\Classes\Database;
 use bricolHelp\PostType\TutorialsPostType;
 use bricolHelp\Role\ProfessionalRole;
 use bricolHelp\Role\AdvancedRole;
-use bricolHelp\Taxonomy\CategoriesTaxonomy;
+use bricolHelp\Taxonomy\CategoryTypesTaxonomy;
 use bricolHelp\Taxonomy\MaterialsTaxonomy;
 use bricolHelp\Taxonomy\ToolsTaxonomy;
 use bricolHelp\User\Register;
@@ -56,7 +56,7 @@ class Plugin
         // lancer l'enregistrement du CPT
         TutorialsPostType::register();
         MaterialsTaxonomy::register();
-        CategoriesTaxonomy::register();
+        CategoryTypesTaxonomy::register();
         ToolsTaxonomy::register();
     }
 
@@ -111,7 +111,7 @@ class Plugin
         // associer les caps custom de nos CPT et CT à l'admin
         TutorialsPostType::addCaps();
         MaterialsTaxonomy::addCaps();
-        CategoriesTaxonomy::addCaps();
+        CategoryTypesTaxonomy::addCaps();
         ToolsTaxonomy::addCaps();
     }
 
@@ -131,7 +131,7 @@ class Plugin
         // Dissocier les caps custom de nos CPT et CT de l'admin
         TutorialsPostType::removeCaps();
         MaterialsTaxonomy::removeCaps();
-        CategoriesTaxonomy::removeCaps();
+        CategoryTypesTaxonomy::removeCaps();
         ToolsTaxonomy::removeCaps();
 
         // on déclenche la création de la table custom tutorial avec FK post_id

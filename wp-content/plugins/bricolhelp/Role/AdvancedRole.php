@@ -21,8 +21,9 @@ class AdvancedRole extends Role
             'manage_materials' => true,
             'edit_materials' => true,
             'assign_materials' => true,
-            'manage_categories' => true,
-            'assign_categories' => true,
+            'manage_category_types' => true,
+            'assign_category_types' => true,
+            'edit_category_types' => true,
             'upload_files' => true,
         ];
             

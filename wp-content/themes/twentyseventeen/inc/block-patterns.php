@@ -26,7 +26,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 		'twentyseventeen/large-heading-with-button',
 		array(
 			'title'      => __( 'Large Heading with Button', 'twentyseventeen' ),
-			'categories' => array( 'twentyseventeen' ),
+			'types' => array( 'twentyseventeen' ),
 			'content'    => '<!-- wp:heading {"level":1,"textColor":"black","style":{"typography":{"fontSize":50}}} -->
             <h1 class="has-black-color has-text-color" style="font-size:50px">' . __( 'Attract Leads with Marketing Campaigns that Work', 'twentyseventeen' ) . '</h1>
             <!-- /wp:heading -->
@@ -43,7 +43,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 		'twentyseventeen/images-with-text-and-link',
 		array(
 			'title'      => __( 'Images with Text and Link', 'twentyseventeen' ),
-			'categories' => array( 'twentyseventeen' ),
+			'types' => array( 'twentyseventeen' ),
 			'content'    => '<!-- wp:spacer -->
             <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
             <!-- /wp:spacer -->
@@ -88,7 +88,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 		'twentyseventeen/images-with-link',
 		array(
 			'title'      => __( 'Images with Link', 'twentyseventeen' ),
-			'categories' => array( 'twentyseventeen' ),
+			'types' => array( 'twentyseventeen' ),
 			'content'    => '<!-- wp:spacer -->
             <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
             <!-- /wp:spacer -->
@@ -146,7 +146,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 		'twentyseventeen/services',
 		array(
 			'title'      => __( 'Services', 'twentyseventeen' ),
-			'categories' => array( 'twentyseventeen' ),
+			'types' => array( 'twentyseventeen' ),
 			'content'    => '<!-- wp:spacer -->
             <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
             <!-- /wp:spacer -->
@@ -182,7 +182,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 		'twentyseventeen/contact-us',
 		array(
 			'title'      => __( 'Contact Us', 'twentyseventeen' ),
-			'categories' => array( 'twentyseventeen' ),
+			'types' => array( 'twentyseventeen' ),
 			'content'    => '<!-- wp:cover {"customOverlayColor":"#93aab8","minHeight":700,"align":"center"} -->
             <div class="wp-block-cover aligncenter has-background-dim" style="background-color:#93aab8;min-height:700px"><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"left","textColor":"white","style":{"typography":{"fontSize":50}}} -->
             <p class="has-text-align-left has-white-color has-text-color" style="font-size:50px">' . __( 'We are proud to serve outstanding clients.', 'twentyseventeen' ) . '</p>

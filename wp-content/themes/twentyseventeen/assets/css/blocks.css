@@ -291,10 +291,10 @@ p.has-drop-cap:not(:focus)::first-letter {
 5.0 Blocks - Widgets
 --------------------------------------------------------------*/
 
-/* Archives, Categories & Latest Posts */
+/* Archives, Types & Latest Posts */
 
 .wp-block-archives.aligncenter,
-.wp-block-categories.aligncenter,
+.wp-block-types.aligncenter,
 .wp-block-latest-posts.aligncenter {
 	list-style-position: inside;
 	text-align: center;

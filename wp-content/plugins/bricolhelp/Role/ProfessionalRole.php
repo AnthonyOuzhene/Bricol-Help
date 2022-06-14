@@ -26,10 +26,10 @@ class ProfessionalRole extends Role
             'edit_materials' => true,
             'delete_materials' => true,
             'assign_materials' => true,
-            'manage_categories' => true,
-            'edit_categories' => true,
-            'delete_categories' => true,
-            'assign_categories' => true,
+            'manage_category_types' => true,
+            'edit_category_types' => true,
+            'delete_category_types' => true,
+            'assign_category_types' => true,
             'upload_files' => true
         ];
 }
