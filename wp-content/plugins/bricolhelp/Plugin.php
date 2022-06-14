@@ -108,7 +108,6 @@ class Plugin
         ProfessionalRole::register();
         AdvancedRole::register();
 
-
         // associer les caps custom de nos CPT et CT à l'admin
         TutorialsPostType::addCaps();
         MaterialsTaxonomy::addCaps();

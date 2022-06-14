@@ -18,8 +18,9 @@ class Register
 
     static public function handleRegistration()
     {
-        $postData = json_decode(file_get_contents("php//input"), true);
 
+        $postData = json_decode(file_get_contents("php://input"), true);     
+        
         $userIdOrErrorObject = wp_create_user(
             $postData['username'],
             $postData['password'],
@@ -36,5 +37,7 @@ class Register
 
         // on renvoie la réponse au format JSON
         return $response;
+
+  
     }
 }
