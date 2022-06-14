@@ -9,7 +9,7 @@ class AdvancedRole extends Role
         const ROLE_DISPLAY_NAME = "Bricoleur avancé";
         const CAPABILITIES = [
             'edit_others_tutorials' => true,
-            'read' => true,            
+            'read' => true, 
             'edit_posts' => true,
             'edit_tutorials' => true,
             'publish_tutorials' => false,
@@ -25,6 +25,7 @@ class AdvancedRole extends Role
             'assign_category_types' => true,
             'edit_category_types' => true,
             'upload_files' => true,
+            'edit_published_tutorials' => true
         ];
             
 }
