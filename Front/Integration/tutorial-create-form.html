@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   
+    <title>Bricol'Help</title>
+</head>
+<body>
+    <header class="header logo-only">
+        <div class="logo-text-avatar-container">
+            <img class="logo" src="./images/Bricol__Help-removebg-preview.png">
+            <div class="text-container">
+                <span class="first-part">BRICOL' HELP</span>
+                <span class="second-part">Pour les travailleurs du dimanche qui en ont marre tôt !</span>
+            </div>
+            <img class="avatar" src="./images/avatar.jpg">
+        </div>   
+        <div class="navigation-container">
+
+            <input type="checkbox" class="toggler">
+            <div class="hamburger">
+              <div></div>
+            </div>
+        
+            <div class="menu">
+              <div>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa-solid fa-house"></i>
+                      </span>
+                      <span class="text">Accueil</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                      </span>
+                      <span class="text">Tutos</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa-solid fa-spray-can"></i>
+                      </span>
+                      <span class="text">Categories</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa-solid fa-people-carry-box"></i>
+                      </span>
+                      <span class="text">Team</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa-solid fa-headset"></i>
+                      </span>
+                      <span class="text">Contact</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa-solid fa-user-large"></i>
+                      </span>
+                      <span class="text">Connexion</span>
+                      <span class="text">/Inscription</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    </header>
+    <main class="main-container">
+        <div class="container">
+            <article class="tutorial">
+                <form>
+                    <div class="field">
+                        <label class="field__label">Titre du tuto</label
+                        ><input
+                          type="text"
+                          placeholder="Titre du tuto"
+                          class="field__input"
+                        >
+                      </div>
+                      <div class="field">
+                        <label class="field__label">Temps estimé de réalisation</label
+                        ><input
+                          type="text"
+                          placeholder="Temps estimé de réalisation"
+                          class="field__input"
+                        >
+                      </div>
+                      <div class="field">
+                        <label class="field__label">Outils nécessaires</label
+                        ><input
+                          type="text"
+                          placeholder="Outils nécessaires"
+                          class="field__input"
+                        >
+                      </div>
+                      <div class="field">
+                        <label class="field__label">Matériaux nécessaires</label
+                        ><input
+                          type="text"
+                          placeholder="Outils nécessaires"
+                          class="field__input"
+                        >
+                      </div>
+                      <div class="field">
+                        <label class="field__label">Réalisation</label>
+
+                        <input
+                        type="image"
+                        id="image"
+                        alt="image"
+                        src="#"
+                        >
+
+                        <input
+                          type="text"
+                          placeholder="Réalisation"
+                          class="field__input"
+                        >
+                      </div>
+
+                      <button>Envoyer</button>
+                </form>
+                
+            </article>
+        </div>    
+    </main>
+
+    <footer>
+        
+
+    </footer>
+    <script>
+        const list = document.querySelectorAll('.list');
+
+        function activeLink() {
+            list.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach((item) =>
+            item.addEventListener('click', activeLink));
+    </script>
+    <script src="./main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+html,
+body {
+  font-size: 14px; 
+  line-height: 1.4;
+  background-color: lightgrey;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 1rem auto 0.5rem auto;
+}
+
+.main-container {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.section{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}

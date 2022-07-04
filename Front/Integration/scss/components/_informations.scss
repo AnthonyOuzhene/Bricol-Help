@@ -1,0 +1,64 @@
+.time {
+	display: flex;
+	justify-content: center;
+}
+
+.author {
+	display: flex;
+	justify-content: center;
+}
+
+.date {
+	display: flex;
+	justify-content: center;
+}
+
+
+
+/******************************************************************/
+
+/* By default, a star is in gray,
+   with padding and a hand-shaped slider. */
+   .fa-star {
+	color: gray;
+	cursor: pointer;
+	padding: 0.0625rem;
+}
+
+/* If it also carries the '.gold' class, it will be yellow. */
+.fa-star.gold {
+	color: #ffdc0f;
+}
+
+/* The global parent '.rating' positions the star group and the column link. */
+.rating {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+	/* The '.stars' group positions the stars
+	next to each other without spacing. */
+	.stars {
+		display: inline-flex;
+		justify-content: center;
+		font-size: 1em;
+	}
+
+	/**
+	 * And there operates the magic of the ':hover'!
+	 */
+
+	/* At ":hover" state on parent '.rating',
+	we force ALL the stars to turn yellow. */
+	.stars:hover .fa-star {
+		color: #ffdc0f;
+	}
+	/* And if the mouse hovers over a particular star,
+	we select all the stars that are AFTER this one
+	thanks to the operator '~' and we force them in GRAY. */
+	.stars .fa-star:hover ~ .fa-star {
+		color: gray;
+	}
+
+/******************************************************************/
