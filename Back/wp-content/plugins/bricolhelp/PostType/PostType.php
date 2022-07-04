@@ -27,12 +27,13 @@ class PostType
                     'thumbnail', // On autorise l'utilisation des images misent en avant
                     'author', // ce custom post type utilisera les auteurs
                     'comments', // ce CPT gérera les commentaires
-                ]
+                ],
+                'show_in_rest' => true,
             ]
         );
     }
 
-      /**
+    /**
      * Automatically attach current CPT custom caps to default roles
      *
      * @return void
@@ -43,7 +44,7 @@ class PostType
         foreach (static::DEFAULT_ROLES_CAPS as $roleSlug => $capsArray) {
             // on utilise la fonction get_role pour récupérer le role courant
             $currentRole = get_role($roleSlug);
-    
+
             // pour chaque capability custom dans ce CPT, on l'ajoute au role courant
             foreach ($capsArray as $cap => $grant) {
                 // on peut associer une cap à un role avec WP_Role::add_cap()
@@ -63,7 +64,7 @@ class PostType
         foreach (static::DEFAULT_ROLES_CAPS as $roleSlug => $capsArray) {
             // on utilise la fonction get_role pour récupérer le role courant
             $currentRole = get_role($roleSlug);
-            
+
             // pour chaque capability custom dans ce CPT, on la retire du role courant
             foreach ($capsArray as $cap) {
                 // on peut associer une cap à un role avec WP_Role::add_cap()

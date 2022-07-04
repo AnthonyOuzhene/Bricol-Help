@@ -1,7 +1,6 @@
 vendor
 wordpress
 wp-config.php
-mdp.md
 
 /wp-content/*
 !/wp-content
@@ -10,4 +9,7 @@ mdp.md
 /wp-content/plugins/*
 !/wp-content/plugins
 
+!/wp-content/themes/twentyseventeen
 !/wp-content/plugins/bricolhelp
+
+install.md

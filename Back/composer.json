@@ -5,7 +5,8 @@
         "wpackagist-theme/twentyseventeen": "^2.9",
         "wpackagist-plugin/query-monitor": "^3.9",
         "wpackagist-plugin/classic-editor": "^1.6",
-        "wpackagist-plugin/fakerpress": "^0.5.3"
+        "wpackagist-plugin/fakerpress": "^0.5.3",
+        "wpackagist-plugin/jwt-auth": "^2.1"
     },
     "config": {
         "allow-plugins": {
@@ -15,7 +16,8 @@
     },
     "scripts": {
         "autoload": "cd wp-content/plugins/bricolhelp && composer dump-autoload",
-        "reactivate-plugin": "wp plugin deactivate bricolhelp && wp plugin activate bricolhelp"
+        "reactivate-plugin": "wp plugin deactivate bricolhelp && wp plugin activate bricolhelp",
+        "uploads-rights": "sudo chown -R $USER:www-data wp-content/uploads"
     },
     "repositories": [
         {

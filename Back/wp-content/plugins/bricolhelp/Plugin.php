@@ -2,14 +2,28 @@
 
 namespace bricolHelp;
 
+use bricolHelp\Api\Tutorials;
+use bricolHelp\Classes\Database;
+use bricolHelp\Classes\Registration;
 use bricolHelp\PostType\TutorialsPostType;
+use bricolHelp\Role\ProfessionalRole;
+use bricolHelp\Role\AdvancedRole;
+use bricolHelp\Taxonomy\CategoryTypesTaxonomy;
+use bricolHelp\Taxonomy\MaterialsTaxonomy;
+use bricolHelp\Taxonomy\ToolsTaxonomy;
+use bricolHelp\User\Register;
 
 class Plugin
 {
     static public function run()
     {
+        self::preInit();
+
         // on accroche une méthode pour gérer l'init
         add_action('init', [self::class, 'onInit']);
+
+        // à l'init de l'api REST
+        add_action('rest_api_init', [self::class, 'onRestInit']);
 
         // idem pour l'activation du plugin
         register_activation_hook(
@@ -21,15 +35,71 @@ class Plugin
             BRICOLHELP_PLUGIN_FILE,
             [self::class, 'onPluginDeactivation'] // la méthode à déclencher à la désactivation du plugin
         );
+
+        // on initialise la partie "Registration"
+        Registration::init();
+    }
+
+    static public function PreInit()
+    {
+        Tutorials::run();
+
+        // on gère la whitelist pour le plugin jwt-auth
+        // on veut return un array qui contient toutes les routes à ne PAS protéger
+        add_filter('jwt_auth_whitelist', function ($endpoints) {
+            $your_endpoints = [
+                '/wp-json/bricolhelp/v1/user',
+            ];
+
+            return array_unique(array_merge($endpoints, $your_endpoints));
+        });
     }
 
     static public function onInit()
     {
         // lancer l'enregistrement du CPT
         TutorialsPostType::register();
+        MaterialsTaxonomy::register();
+        CategoryTypesTaxonomy::register();
+        ToolsTaxonomy::register();
     }
 
-        /**
+    /**
+     * Regroups all the actions to perform on WordPress rest_api_init hook
+     *
+     * @return void
+     */
+    static public function onRestInit()
+    {
+
+        remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
+        add_filter('rest_pre_serve_request', [self::class, 'setupCors']);
+
+        Register::initRoute();
+
+        // ajout du champ "metadata" qui contient toutes les méta pour un post
+        register_rest_field(
+            'post',
+            'metadata',
+            [
+                'get_callback' => function ($data) {
+                    return get_post_meta($data['id'], '', '');
+                }
+            ]
+        );
+    }
+
+    /**
+     * setupCors()
+     * filters the Cross Origin Policy
+     *
+     * @return void
+     */
+    static public function setupCors()
+    {
+        header('Access-Control-Allow-Origin: *');
+    }
+    /**
      * onPluginActivation()
      * Actions to perform on plugin activation
      *
@@ -37,10 +107,18 @@ class Plugin
      */
     static public function onPluginActivation()
     {
+
+        // déclaration des rôles custom
+        ProfessionalRole::register();
+        AdvancedRole::register();
+
         // associer les caps custom de nos CPT et CT à l'admin
         TutorialsPostType::addCaps();
+        MaterialsTaxonomy::addCaps();
+        CategoryTypesTaxonomy::addCaps();
+        ToolsTaxonomy::addCaps();
     }
-    
+
     /**
      * onPluginDeactivation()
      * Actions to perform on plugin deactivation
@@ -49,7 +127,18 @@ class Plugin
      */
     static public function onPluginDeactivation()
     {
+
+        // on retire les rôles custom
+        ProfessionalRole::unregister();
+        AdvancedRole::unregister();
+
         // Dissocier les caps custom de nos CPT et CT de l'admin
         TutorialsPostType::removeCaps();
+        MaterialsTaxonomy::removeCaps();
+        CategoryTypesTaxonomy::removeCaps();
+        ToolsTaxonomy::removeCaps();
+
+        // on déclenche la création de la table custom tutorial avec FK post_id
+        Database::generateTables();
     }
 }
