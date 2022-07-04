@@ -1,1 +1,0 @@
-/var/www/html/Projet/projet-bricol-help-back/wp-content/plugins/query-monitor/wp-content/db.php
