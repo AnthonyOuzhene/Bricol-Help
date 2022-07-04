@@ -6,10 +6,10 @@
     "axios": "^0.27.2",
     "parcel": "^2.6.2",
     "reset-css": "^5.0.1",
-    "sass": "^1.52.3",
+    "sass": "^1.53.0",
     "vue": "^3.2.37",
     "vue-burger-menu": "^2.0.5",
-    "vue-router": "^4.0.16",
+    "vue-router": "^4.1.0",
     "vuex": "^4.0.2"
   },
   "scripts": {
@@ -17,6 +17,7 @@
     "build": "parcel build"
   },
   "devDependencies": {
+    "@parcel/transformer-html": "^2.6.2",
     "@parcel/transformer-sass": "^2.6.0",
     "@parcel/transformer-vue": "^2.6.0",
     "buffer": "^6.0.3",
