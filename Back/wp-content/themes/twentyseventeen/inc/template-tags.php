@@ -58,31 +58,31 @@ endif;
 
 if ( ! function_exists( 'twentyseventeen_entry_footer' ) ) :
 	/**
-	 * Prints HTML with meta information for the types, tags and comments.
+	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function twentyseventeen_entry_footer() {
 
 		/* translators: Used between list items, there is a space after the comma. */
 		$separate_meta = __( ', ', 'twentyseventeen' );
 
-		// Get Types for posts.
-		$types_list = get_the_category_list( $separate_meta );
+		// Get Categories for posts.
+		$categories_list = get_the_category_list( $separate_meta );
 
 		// Get Tags for posts.
 		$tags_list = get_the_tag_list( '', $separate_meta );
 
 		// We don't want to output .entry-footer if it will be empty, so make sure its not.
-		if ( ( ( twentyseventeen_categorized_blog() && $types_list ) || $tags_list ) || get_edit_post_link() ) {
+		if ( ( ( twentyseventeen_categorized_blog() && $categories_list ) || $tags_list ) || get_edit_post_link() ) {
 
 			echo '<footer class="entry-footer">';
 
 			if ( 'post' === get_post_type() ) {
-				if ( ( $types_list && twentyseventeen_categorized_blog() ) || $tags_list ) {
+				if ( ( $categories_list && twentyseventeen_categorized_blog() ) || $tags_list ) {
 					echo '<span class="cat-tags-links">';
 
 					// Make sure there's more than one category before displaying.
-					if ( $types_list && twentyseventeen_categorized_blog() ) {
-						echo '<span class="cat-links">' . twentyseventeen_get_svg( array( 'icon' => 'folder-open' ) ) . '<span class="screen-reader-text">' . __( 'Types', 'twentyseventeen' ) . '</span>' . $types_list . '</span>';
+					if ( $categories_list && twentyseventeen_categorized_blog() ) {
+						echo '<span class="cat-links">' . twentyseventeen_get_svg( array( 'icon' => 'folder-open' ) ) . '<span class="screen-reader-text">' . __( 'Categories', 'twentyseventeen' ) . '</span>' . $categories_list . '</span>';
 					}
 
 					if ( $tags_list && ! is_wp_error( $tags_list ) ) {
@@ -166,11 +166,11 @@ function twentyseventeen_front_page_section( $partial = null, $id = 0 ) {
  * @return bool
  */
 function twentyseventeen_categorized_blog() {
-	$category_count = get_transient( 'twentyseventeen_types' );
+	$category_count = get_transient( 'twentyseventeen_categories' );
 
 	if ( false === $category_count ) {
-		// Create an array of all the types that are attached to posts.
-		$types = get_types(
+		// Create an array of all the categories that are attached to posts.
+		$categories = get_categories(
 			array(
 				'fields'     => 'ids',
 				'hide_empty' => 1,
@@ -179,13 +179,13 @@ function twentyseventeen_categorized_blog() {
 			)
 		);
 
-		// Count the number of types that are attached to the posts.
-		$category_count = count( $types );
+		// Count the number of categories that are attached to the posts.
+		$category_count = count( $categories );
 
-		set_transient( 'twentyseventeen_types', $category_count );
+		set_transient( 'twentyseventeen_categories', $category_count );
 	}
 
-	// Allow viewing case of 0 or 1 types in post preview.
+	// Allow viewing case of 0 or 1 categories in post preview.
 	if ( is_preview() ) {
 		return true;
 	}
@@ -202,7 +202,7 @@ function twentyseventeen_category_transient_flusher() {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'twentyseventeen_types' );
+	delete_transient( 'twentyseventeen_categories' );
 }
 add_action( 'edit_category', 'twentyseventeen_category_transient_flusher' );
 add_action( 'save_post', 'twentyseventeen_category_transient_flusher' );
