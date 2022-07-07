@@ -6,7 +6,6 @@ use bricolHelp\PostType\TutorialsPostType;
 
 class Tutorials
 {
-
     /**
      * run()
      * starts the Tutorial related Api customization
